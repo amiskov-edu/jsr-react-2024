@@ -14,7 +14,7 @@ function mkComp(name) {
 	if (fs.existsSync(compFile)) {
 		return;
 	}
-	const tmpl = `export const ${name[0].toUpperCase()+name.slice(1)} = ({${name}}) => {\n    return <div>${name}</div>\n}`;
+	const tmpl = `export const ${name[0].toUpperCase()+name.slice(1)} = ({${name}}) => {\n    return <div>${name}</div>\n}\n`;
 	fs.mkdirSync(dir, { recursive: true });
 	fs.writeFileSync(compFile, tmpl);
 }
