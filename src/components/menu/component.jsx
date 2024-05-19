@@ -1,3 +1,8 @@
 export const Menu = ({menu}) => {
-    return <div>menu</div>
+    return <ul>
+        {menu.map(dish =>
+            <li>
+                {dish.name} - {dish.price} ({dish.ingredients.join(', ')})
+            </li>)}
+    </ul>
 }

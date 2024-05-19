@@ -1,3 +1,3 @@
 export const Review = ({review}) => {
-    return <div>review</div>
+    return <p><i>{review.user} ({review.rating})</i> {review.text}</p>
 }
