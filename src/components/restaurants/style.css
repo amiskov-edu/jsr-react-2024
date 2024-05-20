@@ -1,0 +1,11 @@
+.tabs {
+    margin-bottom: 1em;
+}
+
+.tabs button {
+    margin-right: .5em;
+}
+
+.tabs button.active {
+    background: yellow;
+}
