@@ -1,8 +1,10 @@
+import {Dish} from '../dish/component.jsx'
+
 export const Menu = ({menu}) => {
-    return <ul>
-        {menu.map(dish =>
-            <li>
-                {dish.name} - {dish.price} ({dish.ingredients.join(', ')})
-            </li>)}
-    </ul>
+    return <div>
+        <h3>Menu</h3>
+        <ul>
+            {menu.map(dish => <li><Dish dish={dish}/></li>)}
+        </ul>
+    </div>
 }
