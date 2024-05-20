@@ -1,1 +1,8 @@
-# jsr-react-2024
+# Restaurants
+
+## Howto
+Create a bunch of components at once:
+
+```sh
+npm run cmp -- header footer menu # ...
+```
