@@ -23,8 +23,6 @@ export const Restaurants = ({restaurants}) => {
         {restaurants.map((restaurant, idx) => {
             if (idx === active) {
                 return <Restaurant restaurant={restaurant}/>
-            } else {
-                return;
             }
         })}
     </>
