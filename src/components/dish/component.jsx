@@ -6,8 +6,8 @@ export const Dish = ({dish}) => {
     const dec = () => (count <= 0) ? setCount(0) : setCount(count - 1);
 
     return <>{dish.name} - {dish.price} ({dish.ingredients.join(', ')})
-        <button onClick={dec}>-</button>
+        <button onClick={dec} disabled={count===0}>-</button>
         {count}
-        <button onClick={inc}>+</button>
+        <button onClick={inc} disabled={count===5}>+</button>
     </>
 }
