@@ -1,3 +1,4 @@
+/* eslint-env node */
 // Create basic file for a component[s]:
 // node create_components.js header footer ...
 
