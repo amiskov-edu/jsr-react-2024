@@ -11,5 +11,5 @@ export function useCount({ initialValue = 0, min = 0, max = 5 } = {}) {
         setCount(currentCount => currentCount === min ? currentCount : currentCount - 1);
     }, [min]);
 
-    return { count, min, max, increment, decrement }
+    return { count, increment, decrement }
 }
