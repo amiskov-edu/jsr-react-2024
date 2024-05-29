@@ -1,13 +1,14 @@
-import {useState} from 'react';
+import { Counter } from '../counter/component.jsx'
+import { useCount } from '../../hooks/use-count.js';
 
-export const Dish = ({dish}) => {
-    const [count, setCount] = useState(0);
-    const inc = () => (count >= 5) ? setCount(5) : setCount(count + 1);
-    const dec = () => (count <= 0) ? setCount(0) : setCount(count - 1);
+const min = 0;
+const max = 7;
 
-    return <>{dish.name} - {dish.price} ({dish.ingredients.join(', ')})
-        <button onClick={dec} disabled={count===0}>-</button>
-        {count}
-        <button onClick={inc} disabled={count===5}>+</button>
+export const Dish = ({ dish }) => {
+    const { count, increment, decrement } = useCount({min, max});
+    return <>
+        {dish.name} - {dish.price} ({dish.ingredients.join(', ')})
+        <Counter count={count} increment={increment} decrement={decrement} min={min} max={max} />
+        <b>${dish.price * count}</b>
     </>
 }
