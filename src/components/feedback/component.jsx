@@ -29,7 +29,7 @@ export const Feedback = () => {
     const handleText = ev => dispatch({type: 'text', payload: ev.target.value});
     const handleName = ev => dispatch({type: 'name', payload: ev.target.value});
     const handleRating = ev => dispatch({type: 'rating', payload: Number(ev.target.value)});
-    const handleSubmit = () => console.log(JSON.stringify(state));
+    const handleSubmit = () => console.log(state);
 
     return <form action="#" onSubmit={handleSubmit} >
         <div>
