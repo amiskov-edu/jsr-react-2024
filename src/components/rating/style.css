@@ -1,3 +1,7 @@
-button.active {
+.rating {
+    display: inline-block;
+}
+
+.rating button[disabled] {
     background: yellow;
 }
