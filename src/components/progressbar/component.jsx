@@ -1,12 +1,55 @@
-import './style.css'
-import {useRef, useState, useEffect} from 'react'
-import {useScrollProgress} from '../../hooks/use-scroll-progress.js'
+import "./style.css";
+import { useRef, useState, useEffect } from "react";
 
-export const ProgressBar = ({progressbar}) => {
-    const [progress, setProgress] = useState(0);
-    const progressElementRef = useRef()
-    useEffect(() => useScrollProgress(setProgress), []);
-    return <div className="progressbar">
-        <div ref={progressElementRef} className="inner" style={{width: progress + '%'}}></div>
+export const ProgressBar = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressElementRef = useRef();
+
+  useEffect(() => {
+    let animationFrameTicking = false;
+    let resizeTimeoutId = null;
+
+    updateScrollProgres();
+
+    function updateScrollProgres() {
+      const scrolled = document.documentElement.clientHeight + window.scrollY;
+      const status = scrolled / document.documentElement.scrollHeight;
+      setScrollProgress(Math.round(status * 100));
+    }
+
+    function onScroll() {
+      if (!animationFrameTicking) {
+        window.requestAnimationFrame(() => {
+          updateScrollProgres();
+          animationFrameTicking = false;
+        });
+        animationFrameTicking = true;
+      }
+    }
+
+    function onResize() {
+      clearTimeout(resizeTimeoutId);
+      resizeTimeoutId = setTimeout(() => {
+        updateScrollProgres();
+      }, 300);
+    }
+
+    document.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      document.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  return (
+    <div className="progressbar">
+      <div
+        ref={progressElementRef}
+        className="inner"
+        style={{ width: scrollProgress + "%" }}
+      ></div>
     </div>
-}
+  );
+};
