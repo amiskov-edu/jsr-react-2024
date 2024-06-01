@@ -1,9 +1,8 @@
 import "./style.css";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const ProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const progressElementRef = useRef();
 
   useEffect(() => {
     let animationFrameTicking = false;
@@ -45,11 +44,7 @@ export const ProgressBar = () => {
 
   return (
     <div className="progressbar">
-      <div
-        ref={progressElementRef}
-        className="inner"
-        style={{ width: scrollProgress + "%" }}
-      ></div>
+      <div className="inner" style={{ width: scrollProgress + "%" }} />
     </div>
   );
 };
