@@ -8,7 +8,7 @@ export function UserLogin({onLogin}) {
     return (
         <div>
             {isModalShowed && (
-                <Modal onOverlayClick={() => setIsModalShowed(!isModalShowed)}>
+                <Modal dismiss={() => setIsModalShowed(!isModalShowed)}>
                     <LoginForm
                         onCancel={() => setIsModalShowed(!isModalShowed)}
                         onSignIn={(userName) => {
