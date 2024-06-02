@@ -4,21 +4,21 @@ import {Modal} from "../modal/component.jsx";
 import {LoginForm} from "../login-form/component.jsx";
 
 export function UserLogin({onLogin}) {
-    const [isModalShowed, setIsModalShowed] = useState(false);
+    const [isLoginFormVisible, setIsLoginFormVisible] = useState(false);
     return (
         <div>
-            {isModalShowed && (
-                <Modal dismiss={() => setIsModalShowed(!isModalShowed)}>
+            {isLoginFormVisible && (
+                <Modal dismiss={() => setIsLoginFormVisible(false)}>
                     <LoginForm
-                        onCancel={() => setIsModalShowed(!isModalShowed)}
+                        onCancel={() => setIsLoginFormVisible(false)}
                         onSignIn={(userName) => {
                             onLogin(userName);
-                            setIsModalShowed(false);
+                            setIsLoginFormVisible(false);
                         }}
                     />
                 </Modal>
             )}
-            <button onClick={() => setIsModalShowed(true)}>Log In</button>
+            <button onClick={() => setIsLoginFormVisible(true)}>Log In</button>
         </div>
     );
 }
