@@ -20,7 +20,7 @@ export const Modal = ({children, dismiss}) => {
                 <div className="overlay" onClick={dismiss}>
                     <div className="modal"
                          onClick={(event) => event.stopPropagation()}>
-                        <div className="modal__inner">{children}</div>
+                        {children}
                     </div>
                 </div>,
                 document.getElementById("modals"),
