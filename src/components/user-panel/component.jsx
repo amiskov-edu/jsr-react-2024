@@ -1,17 +1,13 @@
-import {useUser, useSetUser} from '../../contexts/user-context.jsx'
+import {useUser, useSetUser} from "../../contexts/user-context.jsx";
+import {UserWelcome} from "./user-welcome.jsx";
+import {UserLogin} from "./user-login.jsx";
 
 export function UserPanel() {
     const user = useUser();
     const setUser = useSetUser();
-    if (user) {
-        return <div>
-            Welcome, {user.name}!
-            <button onClick={() => setUser(null)}>Log Out</button>
-        </div>
-    } else {
-        return <div>
-            <button onClick={() => setUser({name: 'Vasya'})}>Log In</button>
-        </div>
-    }
+    return (
+        (user && user.name)
+            ? <UserWelcome name={user.name} onLogOut={() => setUser(null)}></UserWelcome>
+            : <UserLogin onLogin={(userName) => setUser({name: userName})}></UserLogin>
+    );
 }
-
