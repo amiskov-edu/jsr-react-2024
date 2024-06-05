@@ -1,12 +1,10 @@
-export const RestaurantTabs = ({ restaurants, active, onChange }) => {
+export const RestaurantTabs = ({ restaurants, restaurantIds, active, onChange }) => {
     return <div className="tabs">
-        {restaurants.map(({ name }, idx) => (
-            <button
-                disabled={idx === active}
-                className={idx === active ? "active" : ""}
-                onClick={() => onChange(idx)}>
-                {name}
-            </button>
-        ))}
+        {restaurantIds.map(id => <button
+            disabled={id === active}
+            onClick={() => onChange(id)}>
+            {restaurants[id].name}
+        </button>
+        )}
     </div>
 }
