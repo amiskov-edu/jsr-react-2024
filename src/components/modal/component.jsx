@@ -1,4 +1,4 @@
-import "./style.css";
+import s from "./style.module.css";
 import {createPortal} from "react-dom";
 import {useEffect} from "react";
 
@@ -17,8 +17,8 @@ export const Modal = ({children, dismiss}) => {
     return (
         <>
             {createPortal(
-                <div className="overlay" onClick={dismiss}>
-                    <div className="modal"
+                <div className={s.overlay} onClick={dismiss}>
+                    <div className={s.modal}
                          onClick={(event) => event.stopPropagation()}>
                         {children}
                     </div>
