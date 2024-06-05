@@ -10,8 +10,6 @@ import { UserProvider } from "./contexts/user-context.jsx";
 import { Provider } from 'react-redux'
 import { store } from './redux'
 
-console.log(store.getState())
-
 export const App = ({ restaurants }) => <>
     <Provider store={store}>
         <UserProvider>
