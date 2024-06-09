@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Restaurant } from "../restaurant/component.jsx";
-import { RestaurantTabs } from "../tabs/component.jsx";
+import { RestaurantTabs } from "../restaurant-tabs/component.jsx";
 import "./style.css";
 import { useSelector } from "react-redux";
 
 export const Restaurants = () => {
 	const restaurantIds = useSelector((state) => state.restaurant.ids);
-	const [active, setActiveRestaurant] = useState(restaurantIds[0]);
-	const restaurants = useSelector((state) => state.restaurant.entities);
+	const [activeRestaurantId, setActiveRestaurantId] = useState(restaurantIds[0]);
 
 	if (restaurantIds.length === 0) {
 		return <div>Restaurants not found.</div>;
@@ -15,11 +14,9 @@ export const Restaurants = () => {
 
 	return <>
 		<RestaurantTabs
-			restaurantIds={restaurantIds}
-			restaurants={restaurants}
-			active={active}
-			onChange={setActiveRestaurant}
+			activeRestaurant={activeRestaurantId}
+			onChange={setActiveRestaurantId}
 		/>
-		<Restaurant restaurant={restaurants[active]} />
+		<Restaurant id={activeRestaurantId} />
 	</>
 };
