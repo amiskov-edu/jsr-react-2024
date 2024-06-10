@@ -1,7 +1,7 @@
 .rating {
-    display: inline-block;
+  display: inline-block;
 }
 
 .rating button[disabled] {
-    background: yellow;
+  background: yellow;
 }

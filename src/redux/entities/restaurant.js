@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { normalizedRestaurants } from "../../constants/restaurants-normalized";
 
 export const RestaurantSlice = createSlice({
-  name: 'restaurant',
+  name: "restaurant",
   initialState: {
     entities: normalizedRestaurants.reduce((acc, rest) => {
       acc[rest.id] = rest;
-      return acc
+      return acc;
     }, {}),
-    ids: normalizedRestaurants.map(restaurant => restaurant.id),
-  }
+    ids: normalizedRestaurants.map((restaurant) => restaurant.id),
+  },
 });

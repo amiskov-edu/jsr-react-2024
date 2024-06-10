@@ -5,18 +5,22 @@ import "./style.css";
 import { useSelector } from "react-redux";
 
 export const Restaurants = () => {
-	const restaurantIds = useSelector((state) => state.restaurant.ids);
-	const [activeRestaurantId, setActiveRestaurantId] = useState(restaurantIds[0]);
+  const restaurantIds = useSelector((state) => state.restaurant.ids);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantIds[0],
+  );
 
-	if (restaurantIds.length === 0) {
-		return <div>Restaurants not found.</div>;
-	}
+  if (restaurantIds.length === 0) {
+    return <div>Restaurants not found.</div>;
+  }
 
-	return <>
-		<RestaurantTabs
-			activeRestaurant={activeRestaurantId}
-			onChange={setActiveRestaurantId}
-		/>
-		<Restaurant id={activeRestaurantId} />
-	</>
+  return (
+    <>
+      <RestaurantTabs
+        activeRestaurant={activeRestaurantId}
+        onChange={setActiveRestaurantId}
+      />
+      <Restaurant id={activeRestaurantId} />
+    </>
+  );
 };

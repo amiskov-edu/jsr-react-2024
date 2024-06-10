@@ -1,6 +1,7 @@
 # Restaurants
 
 ## Howto
+
 Create a bunch of components at once:
 
 ```sh
