@@ -7,12 +7,19 @@ import { Feedback } from "./components/feedback/component.jsx";
 import { ProgressBar } from "./components/progressbar/component.jsx";
 import { ThemeProvider } from "./contexts/theme-context.jsx";
 import { UserProvider } from "./contexts/user-context.jsx";
-import { Provider } from "react-redux";
-import { store } from "./redux";
+import { useDispatch } from "react-redux";
+import { getRestaurants } from "./redux/entities/restaurant/thunks/get-restaurants.js";
+import { useEffect } from "react";
 
-export const App = ({ restaurants }) => (
-  <>
-    <Provider store={store}>
+export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRestaurants());
+  }, [dispatch]);
+
+  return (
+    <>
       <UserProvider>
         <ThemeProvider>
           <ProgressBar />
@@ -22,13 +29,13 @@ export const App = ({ restaurants }) => (
           <hr />
           <Feedback />
           <hr />
-          {[...Array(50)].map((_) => (
+          {[...Array(50)].map(() => (
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           ))}
           <hr />
           <Footer />
         </ThemeProvider>
       </UserProvider>
-    </Provider>
-  </>
-);
+    </>
+  );
+};

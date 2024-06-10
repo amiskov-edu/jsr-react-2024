@@ -6,11 +6,9 @@ import { useSelector } from "react-redux";
 
 export const Restaurants = () => {
   const restaurantIds = useSelector((state) => state.restaurant.ids);
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurantIds[0],
-  );
+  const [activeRestaurantId, setActiveRestaurantId] = useState();
 
-  if (restaurantIds.length === 0) {
+  if (!restaurantIds) {
     return <div>Restaurants not found.</div>;
   }
 

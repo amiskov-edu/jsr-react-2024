@@ -4,13 +4,15 @@ import { Reviews } from "../reviews/component.jsx";
 import "./style.css";
 
 export const Restaurant = ({ id }) => {
-  const { name, menu, reviews } = useSelector(
-    (state) => state.restaurant.entities[id],
-  );
+  const restaurant = useSelector((state) => state.restaurant.entities[id]);
+  if (!restaurant) {
+    return;
+  }
+  const { name, reviews } = restaurant;
   return (
     <div className="restaurant">
       <h2>{name}</h2>
-      <Menu menu={menu} />
+      <Menu restaurantId={id} />
       <Reviews reviewIds={reviews} />
     </div>
   );

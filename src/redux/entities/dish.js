@@ -1,5 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { normalizedDishes } from "../../constants/restaurants-normalized";
+import { getDishesByRestaurantId } from "./dish/thunks/get-dishes-by-restaurant-id";
+
+const entityAdapter = createEntityAdapter();
 
 export const DishSlice = createSlice({
   name: "dish",
@@ -10,4 +13,8 @@ export const DishSlice = createSlice({
     }, {}),
     ids: normalizedDishes.map((dish) => dish.id),
   },
+  extraReducers: (builder) =>
+    builder.addCase(getDishesByRestaurantId.fulfilled, (state, { payload }) => {
+      entityAdapter.setMany(state, payload);
+    }),
 });
