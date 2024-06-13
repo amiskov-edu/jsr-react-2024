@@ -15,7 +15,7 @@ export const Restaurants = () => {
   return (
     <>
       <RestaurantTabs
-        activeRestaurant={activeRestaurantId}
+        activeRestaurantId={activeRestaurantId}
         onChange={setActiveRestaurantId}
       />
       <Restaurant id={activeRestaurantId} />
