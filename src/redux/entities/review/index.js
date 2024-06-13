@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { normalizedReviews } from "../../constants/restaurants-normalized";
+import { normalizedReviews } from "../../../constants/restaurants-normalized";
 
 export const ReviewSlice = createSlice({
   name: "review",

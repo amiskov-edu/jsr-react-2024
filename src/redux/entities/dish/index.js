@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { normalizedDishes } from "../../constants/restaurants-normalized";
-import { getDishesByRestaurantId } from "./dish/thunks/get-dishes-by-restaurant-id";
+import { normalizedDishes } from "../../../constants/restaurants-normalized";
+import { getDishesByRestaurantId } from "./thunks/get-dishes-by-restaurant-id";
 
 const entityAdapter = createEntityAdapter();
 

@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { getRestaurants } from "./restaurant/thunks/get-restaurants";
+import { getRestaurants } from "./thunks/get-restaurants";
 
 const entityAdapter = createEntityAdapter();
 
