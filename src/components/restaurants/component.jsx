@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Restaurant } from "../restaurant/component.jsx";
-import { RestaurantTabs } from "../restaurant-tabs/component.jsx";
+import { Restaurant } from "../restaurant/component";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
 import "./style.css";
 import { useSelector } from "react-redux";
 
@@ -14,9 +14,9 @@ export const Restaurants = () => {
 
   return (
     <>
-      <RestaurantTabs
+      <RestaurantTabsContainer
         activeRestaurantId={activeRestaurantId}
-        onChange={setActiveRestaurantId}
+        onTabClick={setActiveRestaurantId}
       />
       <Restaurant id={activeRestaurantId} />
     </>
