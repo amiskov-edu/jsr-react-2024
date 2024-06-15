@@ -7,13 +7,16 @@ import { CartSlice } from "../../redux/ui/cart/index.js";
 const min = 0;
 const max = 7;
 
-export const Dish = ({ dish }) => {
+export const Dish = ({ id }) => {
   const user = useUser();
 
-  const count = useSelector((state) => selectDishCount(state, dish.id));
   const dispatch = useDispatch();
-  const increment = () => dispatch(CartSlice.actions.increment(dish.id));
-  const decrement = () => dispatch(CartSlice.actions.decrement(dish.id));
+  const increment = () => dispatch(CartSlice.actions.increment(id));
+  const decrement = () => dispatch(CartSlice.actions.decrement(id));
+  
+  const count = useSelector((state) => selectDishCount(state, id));
+  const dish = useSelector((state) => state.dish.entities[id]);
+
   if (!dish) {
     return
   }

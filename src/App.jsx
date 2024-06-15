@@ -10,12 +10,14 @@ import { UserProvider } from "./contexts/user-context.jsx";
 import { useDispatch } from "react-redux";
 import { getRestaurants } from "./redux/entities/restaurant/thunks/get-restaurants.js";
 import { useEffect } from "react";
+import { getUsers } from "./redux/entities/user/thunks/get-users.js";
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getRestaurants());
+    dispatch(getUsers());
   }, [dispatch]);
 
   return (
