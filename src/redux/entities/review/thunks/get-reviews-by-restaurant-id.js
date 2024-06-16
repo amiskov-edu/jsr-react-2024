@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { selectRestaurantReviewIds } from "../../restaurant/selectors";
-import { selectDishIds } from "../../dish/selectors";
 import { BASE_URL } from "../../../../constants/endpoints";
+import { selectReviewIds } from "../selectors";
 
 export const getReviewsByRestaurantId = createAsyncThunk(
   "review/getReviewsByRestaurantId",
@@ -21,7 +21,7 @@ export const getReviewsByRestaurantId = createAsyncThunk(
       if (forceRefetch || !restaurantReviewIds?.length) {
         return true;
       }
-      const loadedReviewIds = selectDishIds(state);
+      const loadedReviewIds = selectReviewIds(state);
       return restaurantReviewIds.some((id) => !loadedReviewIds.includes(id));
     },
   },
