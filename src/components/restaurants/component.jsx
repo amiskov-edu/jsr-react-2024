@@ -1,26 +1,26 @@
-import { useState } from "react";
-import { Restaurant } from "../restaurant/component.jsx";
-import { RestaurantTabs } from "../restaurant-tabs/component.jsx";
 import "./style.css";
-import { useSelector } from "react-redux";
+
+import { useEffect, useState } from "react";
+import { RestaurantContainer } from "../restaurant/container";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
+import { getRestaurants } from "../../redux/entities/restaurant/thunks/get-restaurants.js";
+import { useDispatch } from "react-redux";
 
 export const Restaurants = () => {
-  const restaurantIds = useSelector((state) => state.restaurant.ids);
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurantIds[0],
-  );
+  const [activeRestaurantId, setActiveRestaurantId] = useState();
+  const dispatch = useDispatch();
 
-  if (restaurantIds.length === 0) {
-    return <div>Restaurants not found.</div>;
-  }
+  useEffect(() => {
+    dispatch(getRestaurants())
+  }, []);
 
   return (
     <>
-      <RestaurantTabs
-        activeRestaurant={activeRestaurantId}
-        onChange={setActiveRestaurantId}
+      <RestaurantTabsContainer
+        activeRestaurantId={activeRestaurantId}
+        onTabClick={setActiveRestaurantId}
       />
-      <Restaurant id={activeRestaurantId} />
+      {activeRestaurantId && <RestaurantContainer id={activeRestaurantId} />}
     </>
   );
 };

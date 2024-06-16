@@ -1,14 +1,15 @@
-import { useSelector } from "react-redux";
+import { RestaurantTabContainer } from "../restaurant-tab/container";
 
-export const RestaurantTabs = ({ activeRestaurant, onChange }) => {
-  const restaurants = useSelector((state) => state.restaurant.entities);
+export const RestaurantTabs = ({ restaurantIds, activeRestaurantId, onTabClick }) => {
   return (
     <div className="tabs">
-      {Object.values(restaurants).map(({ id, name }) => (
-        <button disabled={id === activeRestaurant} onClick={() => onChange(id)}>
-          {name}
-        </button>
-      ))}
+      {restaurantIds.map(id => {
+        return <RestaurantTabContainer
+          id={id}
+          isActive={id === activeRestaurantId}
+          onTabClick={() => onTabClick(id)}
+        />
+      })}
     </div>
   );
 };

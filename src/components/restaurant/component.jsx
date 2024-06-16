@@ -1,17 +1,14 @@
-import { useSelector } from "react-redux";
-import { Menu } from "../menu/component.jsx";
-import { Reviews } from "../reviews/component.jsx";
+import { MenuContainer } from "../menu/container.jsx";
+import { ReviewsContainer } from "../reviews/container.jsx";
 import "./style.css";
 
-export const Restaurant = ({ id }) => {
-  const { name, menu, reviews } = useSelector(
-    (state) => state.restaurant.entities[id],
-  );
+export const Restaurant = ({ restaurant }) => {
+  const { name, id } = restaurant;
   return (
     <div className="restaurant">
       <h2>{name}</h2>
-      <Menu menu={menu} />
-      <Reviews reviewIds={reviews} />
+      <MenuContainer restaurantId={id} />
+      <ReviewsContainer restaurantId={id} />
     </div>
   );
 };
