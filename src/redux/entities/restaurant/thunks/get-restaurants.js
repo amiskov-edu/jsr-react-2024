@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { selectRestaurantIds } from "../selectors";
+import { BASE_URL } from "../../../../constants/endpoints";
 
 export const getRestaurants = createAsyncThunk(
   "restaurant/getRestaurants",
   async () => {
-    const response = await fetch("http://localhost:3001/api/restaurants/");
+    const response = await fetch(`${BASE_URL}/restaurants/`);
     return response.json();
   },
   {
