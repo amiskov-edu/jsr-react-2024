@@ -18,8 +18,6 @@ export const App = () => {
           <hr />
           <Restaurants />
           <hr />
-          <Feedback />
-          <hr />
           {[...Array(50)].map(() => (
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           ))}

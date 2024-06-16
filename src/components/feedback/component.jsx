@@ -5,13 +5,10 @@ function reducer(state, { type, payload }) {
   switch (type) {
     case "name":
       return { ...state, name: payload };
-      break;
     case "text":
       return { ...state, text: payload };
-      break;
     case "rating":
       return { ...state, rating: payload };
-      break;
     default:
       return state;
   }
