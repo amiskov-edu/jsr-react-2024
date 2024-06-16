@@ -4,6 +4,7 @@ import { RestaurantSlice } from "./entities/restaurant";
 import { DishSlice } from "./entities/dish";
 import { ReviewSlice } from "./entities/review";
 import { CartSlice } from "./ui/cart";
+import { RequestSlice } from "./ui/request";
 
 export const store = configureStore({
   reducer: combineSlices(
@@ -12,6 +13,7 @@ export const store = configureStore({
     DishSlice,
     ReviewSlice,
     CartSlice,
+    RequestSlice,
   ),
   middleware: (getGetDefaultMiddleware) => getGetDefaultMiddleware(),
   devTools: import.meta.env.DEV, // Example of Vite's ENV variable usage.
