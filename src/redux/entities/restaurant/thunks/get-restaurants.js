@@ -8,7 +8,7 @@ export const getRestaurants = createAsyncThunk(
     return response.json();
   },
   {
-    condition: ({ forceRefetch = false } = {}, { getState }) => 
-      forceRefetch || !selectRestaurantIds(getState())?.length
-  }
+    condition: ({ forceRefetch = false } = {}, { getState }) =>
+      forceRefetch || !selectRestaurantIds(getState())?.length,
+  },
 );

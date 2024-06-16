@@ -3,10 +3,7 @@ import { selectReviewById } from "../../redux/entities/review/selectors";
 import { ReviewUser } from "../review-user/component";
 
 export const Review = ({ id }) => {
-  const review = useSelector(state => selectReviewById(state, id));
-
-  // TODO: ревью приходят только один раз для выбранного ресторана.
-
+  const review = useSelector((state) => selectReviewById(state, id));
   if (!review) {
     return;
   }

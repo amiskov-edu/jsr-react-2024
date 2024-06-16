@@ -13,12 +13,12 @@ export const Dish = ({ id }) => {
   const dispatch = useDispatch();
   const increment = () => dispatch(CartSlice.actions.increment(id));
   const decrement = () => dispatch(CartSlice.actions.decrement(id));
-  
+
   const count = useSelector((state) => selectDishCount(state, id));
   const dish = useSelector((state) => state.dish.entities[id]);
 
   if (!dish) {
-    return
+    return;
   }
   return (
     <>
