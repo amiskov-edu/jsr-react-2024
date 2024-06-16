@@ -7,19 +7,15 @@ import { increment, decrement } from "../../redux/ui/cart/index.js";
 const min = 0;
 const max = 7;
 
-export const Dish = ({ id }) => {
+export const Dish = ({ dish }) => {
   const user = useUser();
 
   const dispatch = useDispatch();
-  const handleIncrement = () => dispatch(increment(id));
-  const handleDecrement = () => dispatch(decrement(id));
+  const handleIncrement = () => dispatch(increment(dish.id));
+  const handleDecrement = () => dispatch(decrement(dish.id));
 
-  const count = useSelector((state) => selectDishCount(state, id));
-  const dish = useSelector((state) => state.dish.entities[id]);
+  const count = useSelector((state) => selectDishCount(state, dish.id));
 
-  if (!dish) {
-    return;
-  }
   return (
     <>
       {dish.name} - {dish.price} ({dish.ingredients.join(", ")})

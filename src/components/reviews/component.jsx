@@ -1,11 +1,15 @@
 import { Review } from "../review/component.jsx";
 
-export const Reviews = ({ reviewIds }) => {
+export const Reviews = ({ reviews }) => {
   return (
     <div>
       <h3>Reviews</h3>
       <ul>
-        {reviewIds.map(id => (<li><Review id={id} /></li>))}
+        {reviews.map((review) => (
+          <li>
+            <Review review={review} />
+          </li>
+        ))}
       </ul>
     </div>
   );

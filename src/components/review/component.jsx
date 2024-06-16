@@ -1,9 +1,6 @@
-import { useSelector } from "react-redux";
-import { selectReviewById } from "../../redux/entities/review/selectors";
 import { ReviewUser } from "../review-user/component";
 
-export const Review = ({ id }) => {
-  const review = useSelector((state) => selectReviewById(state, id));
+export const Review = ({ review }) => {
   if (!review) {
     return;
   }

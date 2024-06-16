@@ -1,14 +1,13 @@
 import { Dish } from "../dish/component.jsx";
 
-export const Menu = ({ dishIds, onRefreshClick }) => {
+export const Menu = ({ dishes }) => {
   return (
     <div>
       <h3>Menu</h3>
-      <button onClick={onRefreshClick}>Refresh</button>
       <ul>
-        {dishIds.map((id) => (
+        {dishes.map((dish) => (
           <li>
-            <Dish id={id} />
+            <Dish dish={dish} />
           </li>
         ))}
       </ul>
