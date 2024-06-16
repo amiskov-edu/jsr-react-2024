@@ -1,6 +1,6 @@
 import "./style.css";
 import { Restaurant } from "./component";
-import { selectRestaurantById } from "../../redux/entities/restaurant/selectors"
+import { selectRestaurantById } from "../../redux/entities/restaurant/selectors";
 import { useSelector } from "react-redux";
 
 export const RestaurantContainer = ({ id }) => {
@@ -8,7 +8,5 @@ export const RestaurantContainer = ({ id }) => {
   if (!restaurant) {
     return;
   }
-  return (
-    <Restaurant restaurant={restaurant} />
-  );
+  return <Restaurant restaurant={restaurant} />;
 };

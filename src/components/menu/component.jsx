@@ -5,11 +5,12 @@ export const Menu = ({ dishIds }) => {
     <div>
       <h3>Menu</h3>
       <ul>
-        {dishIds.map(id => <li><Dish id={id} /></li>)}
+        {dishIds.map((id) => (
+          <li>
+            <Dish id={id} />
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
-
-
-
