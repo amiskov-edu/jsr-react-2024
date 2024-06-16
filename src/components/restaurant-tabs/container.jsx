@@ -6,7 +6,7 @@ export const RestaurantTabsContainer = ({ activeRestaurantId, onTabClick }) => {
   if (isLoading) {
     return <div>Loading restaurants...</div>;
   }
-  if (!restaurants) {
+  if (!restaurants?.length) {
     return <div>No restaurants found.</div>;
   }
   return (

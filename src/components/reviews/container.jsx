@@ -17,7 +17,7 @@ export const ReviewsContainer = ({ restaurantId }) => {
     <>
       <Reviews reviews={reviews} />
       {user && <ReviewForm restaurantId={restaurantId} author={user} />}
-      {!user && <span>Log in to create your review.</span>}
+      {!user && <span>Log in to create review.</span>}
     </>
   );
 };

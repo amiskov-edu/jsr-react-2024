@@ -8,7 +8,7 @@ export const MenuContainer = ({ restaurantId }) => {
   if (isFetching) {
     return <div>Loading menu...</div>;
   }
-  if (!dishes) {
+  if (!dishes?.length) {
     return <div>No dishes</div>;
   }
   return <Menu dishes={dishes} />;
